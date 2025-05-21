@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Leather Goods | Handcrafted Quality</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        leather: {
+                            50: '#FAF6F1',
+                            100: '#F0E6D8',
+                            200: '#E2CEAF',
+                            300: '#D2B48C',
+                            400: '#B89060',
+                            500: '#9F744A',
+                            600: '#8B4513',
+                            700: '#6D3610',
+                            800: '#4E2A0E',
+                            900: '#301E0C',
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['Libre Baskerville', 'Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    </style>
+</head>
+
+<body class="font-serif bg-leather-50 text-gray-800">
+    <!-- Navbar with Alpine.js mobile menu toggle -->
+    <header x-data="{ isOpen: false }" class="relative">
+        <nav class="bg-leather-800 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex items-center ">
+                        <div class="flex-shrink-0">
+                            <span class="text-2xl font-bold tracking-wider">ARTISAN LEATHER</span>
+                        </div>
+
+                        <div class="ml-5 mb-10">
+                            <h4 class="font-bold text-leather-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-leather-600 flex items-center justify-center text-white hover:bg-leather-700 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-leather-600 flex items-center justify-center text-white hover:bg-leather-700 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-leather-600 flex items-center justify-center text-white hover:bg-leather-700 transition">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-leather-600 flex items-center justify-center text-white hover:bg-leather-700 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#home"
+                                class="text-leather-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                            <a href="#products"
+                                class="text-leather-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Products</a>
+                            <a href="#about"
+                                class="text-leather-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                            <a href="#contact"
+                                class="text-leather-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                            <a href="#"
+                                class="bg-leather-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-leather-700 transition duration-300">Shop
+                                Now</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button @click="isOpen = !isOpen" class="text-gray-200 hover:text-white focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x-show="!isOpen"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x-show="isOpen"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div x-show="isOpen" class="md:hidden bg-leather-700">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                    <a href="#products"
+                        class="text-leather-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
+                    <a href="#about"
+                        class="text-leather-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                    <a href="#contact"
+                        class="text-leather-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                    <a href="#"
+                        class="bg-leather-600 text-white block px-3 py-2 rounded-md text-base font-medium mt-4">Shop
+                        Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Parallax Effect -->
+    <section id="home" class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            :class="{ 'transform scale-105 transition-transform duration-1000': scrolled }"
+            style="background-image: url('/img/BANNER1-1.jpg');">
+        </div>
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 animate-[fadeIn_1s_ease-in_forwards]">
+                Craftsmanship in Every Detail
+            </h1>
+            <p
+                class="text-xl md:text-2xl text-leather-100 mb-10 max-w-3xl mx-auto opacity-0 animate-[fadeIn_1s_0.5s_ease-in_forwards]">
+                Handcrafted leather goods that combine timeless design with exceptional quality, creating pieces that
+                tell your unique story.
+            </p>
+            <div
+                class="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-[fadeIn_1s_1s_ease-in_forwards]">
+                <a href="#products"
+                    class="bg-leather-600 text-white px-8 py-3 rounded-md font-medium hover:bg-leather-700 transition duration-300 transform hover:-translate-y-1">
+                    Explore Collection
+                </a>
+                <a href="#contact"
+                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white/10 transition duration-300 transform hover:-translate-y-1">
+                    Custom Orders
+                </a>
+            </div>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-leather-800 mb-4">Our Signature Collection</h2>
+                <div class="w-24 h-1 bg-leather-400 mx-auto"></div>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+                    Each piece is meticulously handcrafted from premium full-grain leather, designed to age beautifully
+                    and last for generations.
+                </p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="/img/image.png" alt="Classic Bifold Wallet"
+                            class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                            <div class="p-4 w-full">
+                                <button
+                                    class="w-full bg-leather-600 text-white py-2 rounded font-medium hover:bg-leather-700 transition">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-leather-800">Classic Bifold Wallet</h3>
+                    <p class="text-gray-600 mt-1">Hand-stitched with full-grain leather, featuring 8 card slots and
+                        hidden compartments.</p>
+                    <div class="mt-2 flex items-center justify-between">
+                        <span class="text-xl font-bold text-leather-600">$89</span>
+                        <div class="flex items-center">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-1">(42)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="/img/image.png" alt="Vintage Messenger Bag"
+                            class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                            <div class="p-4 w-full">
+                                <button
+                                    class="w-full bg-leather-600 text-white py-2 rounded font-medium hover:bg-leather-700 transition">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-leather-800">Vintage Messenger Bag</h3>
+                    <p class="text-gray-600 mt-1">Spacious interior with multiple compartments, perfect for everyday
+                        carry and business use.</p>
+                    <div class="mt-2 flex items-center justify-between">
+                        <span class="text-xl font-bold text-leather-600">$259</span>
+                        <div class="flex items-center">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-1">(38)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="/img/image.png" alt="Full-Grain Belt"
+                            class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                            <div class="p-4 w-full">
+                                <button
+                                    class="w-full bg-leather-600 text-white py-2 rounded font-medium hover:bg-leather-700 transition">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-leather-800">Full-Grain Belt</h3>
+                    <p class="text-gray-600 mt-1">Durable construction with premium brass buckle that develops character
+                        with time.</p>
+                    <div class="mt-2 flex items-center justify-between">
+                        <span class="text-xl font-bold text-leather-600">$79</span>
+                        <div class="flex items-center">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-1">(27)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="/img/image.png" alt="Leather-Bound Journal"
+                            class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end">
+                            <div class="p-4 w-full">
+                                <button
+                                    class="w-full bg-leather-600 text-white py-2 rounded font-medium hover:bg-leather-700 transition">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-leather-800">Leather-Bound Journal</h3>
+                    <p class="text-gray-600 mt-1">Handmade with refillable paper and signature embossing option for a
+                        personal touch.</p>
+                    <div class="mt-2 flex items-center justify-between">
+                        <span class="text-xl font-bold text-leather-600">$69</span>
+                        <div class="flex items-center">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-1">(51)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-block px-8 py-3 bg-leather-600 text-white rounded-md font-medium hover:bg-leather-700 transition duration-300 transform hover:-translate-y-1">
+                    View All Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Craftsmanship Section with Parallax -->
+    <section class="relative py-24 bg-fixed bg-cover bg-center"
+        style="background-image: url('/api/placeholder/1600/800')">
+        <div class="absolute inset-0 bg-leather-900/80"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">The Art of Leathercraft</h2>
+            <p class="text-xl text-leather-100 max-w-3xl mx-auto mb-10">
+                Every stitch, every cut, every detail is executed with precision and care, resulting in pieces that are
+                not just functional but beautiful works of art.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg hover:bg-white/20 transition duration-300">
+                    <div class="text-leather-200 text-4xl mb-4">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Premium Materials</h3>
+                    <p class="text-leather-100">
+                        We source only the finest full-grain leathers from sustainable and ethical suppliers around the
+                        world.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg hover:bg-white/20 transition duration-300">
+                    <div class="text-leather-200 text-4xl mb-4">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Handcrafted</h3>
+                    <p class="text-leather-100">
+                        Each piece is meticulously hand-stitched using traditional techniques passed down through
+                        generations.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg hover:bg-white/20 transition duration-300">
+                    <div class="text-leather-200 text-4xl mb-4">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Built to Last</h3>
+                    <p class="text-leather-100">
+                        Our products are designed to age beautifully, developing a rich patina that makes each piece
+                        uniquely yours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-leather-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-leather-800 mb-4">What Our Customers Say</h2>
+                <div class="w-24 h-1 bg-leather-400 mx-auto"></div>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+                    Stories from our community of leather enthusiasts and loyal customers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">
+                        "I've had my messenger bag for over 5 years now, and it just keeps getting better with age. The
+                        leather has developed such a beautiful patina, and the craftsmanship is impeccable. Worth every
+                        penny."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-leather-200 flex items-center justify-center">
+                            <span class="text-leather-800 font-bold">JM</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-leather-800">James Morrison</h4>
+                            <p class="text-gray-600 text-sm">New York, NY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">
+                        "I ordered a custom wallet with my initials embossed, and the attention to detail blew me away.
+                        The quality surpassed my expectations, and the customer service was exceptional throughout the
+                        process."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-leather-200 flex items-center justify-center">
+                            <span class="text-leather-800 font-bold">SL</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-leather-800">Sarah Lin</h4>
+                            <p class="text-gray-600 text-sm">Chicago, IL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">
+                        "The craftsmanship is truly remarkable. I purchased a belt three years ago, and it still looks
+                        fantastic. I've since added a wallet and key holder to my collection, and I'm equally impressed
+                        with both."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-leather-200 flex items-center justify-center">
+                            <span class="text-leather-800 font-bold">RD</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-leather-800">Robert Daniels</h4>
+                            <p class="text-gray-600 text-sm">Austin, TX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-leather-800 mb-6">Our Story</h2>
+                    <div class="w-24 h-1 bg-leather-400 mb-8"></div>
+                    <p class="text-gray-700 mb-4">
+                        Founded in 2010, Artisan Leather began as a small workshop dedicated to preserving traditional
+                        leatherworking techniques. Our journey started with a simple philosophy: create exceptional
+                        leather goods that grow more beautiful with time.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Every piece we craft passes through the hands of skilled artisans who have devoted years to
+                        perfecting their craft. We source only the finest full-grain leathers from ethical suppliers and
+                        use traditional techniques that have stood the test of time.
+                    </p>
+                    <p class="text-gray-700 mb-8">
+                        What began as a passion project has grown into a beloved brand known for quality, durability,
+                        and timeless design. We're proud to create products that don't just serve a purpose but tell a
+                        story—your story—as they age and develop a unique patina that reflects your journey.
+                    </p>
+                    <a href="#"
+                        class="inline-block px-6 py-3 bg-leather-600 text-white rounded-md font-medium hover:bg-leather-700 transition duration-300">
+                        Learn More About Us
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="/img/image.png" alt="Workshop Image"
+                        class="rounded-lg w-full h-64 lg:h-80 object-cover shadow-lg transform hover:scale-105 transition duration-500">
+                    <img src="/img/image.png" alt="Workshop Image"
+                        class="rounded-lg w-full h-64 lg:h-80 object-cover shadow-lg transform translate-y-8 hover:scale-105 transition duration-500">
+                    <img src="/img/image.png" alt="Workshop Image"
+                        class="rounded-lg w-full h-64 lg:h-80 object-cover shadow-lg transform -translate-y-8 hover:scale-105 transition duration-500">
+                    <img src="/img/image.png" alt="Workshop Image"
+                        class="rounded-lg w-full h-64 lg:h-80 object-cover shadow-lg transform hover:scale-105 transition duration-500">
+                </div>
+
+                <!-- Contact Form -->
+                <div id="contact" class="lg:col-span-3 bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-bold text-leather-800 mb-6">Send Us a Message</h3>
+
+                    <form x-data="{
+                        name: '',
+                        email: '',
+                        phone: '',
+                        product: '',
+                        message: '',
+                        submitted: false,
+                        submit() {
+                            // In a real implementation, this would send the form data
+                            this.submitted = true;
+                            // Reset form after 3 seconds for demo purposes
+                            setTimeout(() => {
+                                this.name = '';
+                                this.email = '';
+                                this.phone = '';
+                                this.product = '';
+                                this.message = '';
+                                this.submitted = false;
+                            }, 3000);
+                        }
+                    }">
+                        <div x-show="submitted"
+                            class="mb-6 bg-green-50 border border-green-200 text-green-700 p-4 rounded">
+                            Thank you for your message! We'll get back to you as soon as possible.
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-leather-800 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" x-model="name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-leather-400 focus:border-transparent transition"
+                                    placeholder="John Doe" required>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-leather-800 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" x-model="email"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-leather-400 focus:border-transparent transition"
+                                    placeholder="john@example.com" required>
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-leather-800 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" x-model="phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-leather-400 focus:border-transparent transition"
+                                    placeholder="(555) 123-4567">
+                            </div>
+
+                            <div>
+                                <label for="product" class="block text-leather-800 font-medium mb-2">Product
+                                    Interest</label>
+                                <select id="product" x-model="product"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-leather-400 focus:border-transparent transition">
+                                    <option value="">Select a product type</option>
+                                    <option value="wallet">Wallet</option>
+                                    <option value="bag">Bag</option>
+                                    <option value="belt">Belt</option>
+                                    <option value="journal">Journal</option>
+                                    <option value="custom">Custom Design</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label for="message" class="block text-leather-800 font-medium mb-2">Your Message</label>
+                            <textarea id="message" x-model="message"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-leather-400 focus:border-transparent transition"
+                                rows="5" placeholder="Tell us about your custom request or inquiry" required></textarea>
+                        </div>
+
+                        <div class="mt-6">
+                            <button type="button" @click="submit"
+                                class="w-full bg-leather-600 text-white py-3 rounded-md font-medium hover:bg-leather-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-leather-500">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-leather-800 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Stay Connected</h3>
+                    <p class="text-leather-200">
+                        Subscribe to our newsletter for exclusive offers, leather care tips, and updates on new
+                        products.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" placeholder="Your email address"
+                            class="flex-grow px-4 py-3 rounded-md focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-leather-600 hover:bg-leather-700 px-6 py-3 rounded-md font-medium transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-leather-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div>
+                    <h4 class="text-xl font-bold mb-6">ARTISAN LEATHER</h4>
+                    <p class="text-leather-200 mb-6">
+                        Handcrafted leather goods made with passion and precision since 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-leather-200 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-leather-200 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-leather-200 hover:text-white transition">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" class="text-leather-200 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-leather-200 hover:text-white transition">Home</a></li>
+                        <li><a href="#products" class="text-leather-200 hover:text-white transition">Shop</a></li>
+                        <li><a href="#about" class="text-leather-200 hover:text-white transition">About Us</a></li>
+                        <li><a href="#contact" class="text-leather-200 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-leather-200 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Customer Care</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-leather-200 hover:text-white transition">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-leather-200 hover:text-white transition">Leather Care Guide</a></li>
+                        <li><a href="#" class="text-leather-200 hover:text-white transition">Custom Orders</a></li>
+                        <li><a href="#" class="text-leather-200 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-leather-200 hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-3 text-leather-200">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>123 Craftsman Lane<br>Leathertown, LT 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>hello@artisanleather.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-leather-700 text-center text-leather-300">
+                <p>&copy; 2025 Artisan Leather. All rights reserved.</p>
+                <p class="mt-2 text-sm">Handcrafted with pride and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 bg-leather-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-leather-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
